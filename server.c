@@ -41,7 +41,7 @@ void	bit_handler(int bit)
 	}
 }
 
-/*int	main(void)
+int	main(void)
 {
 	ft_printf("Server PID: %d\n", getpid());
 	signal(SIGUSR1, bit_handler);
@@ -49,27 +49,6 @@ void	bit_handler(int bit)
 	while (1)
 	{
 		pause();
-	}
-	return (0);
-}*/
-
-int	main(int argc, char **argv)
-{
-	int	pid;
-
-	(void)argv;
-	if (argc != 1)
-	{
-		printf("Error\n");
-		return (1);
-	}
-	signal(SIGUSR1, bit_handler);
-	signal(SIGUSR2, bit_handler);
-	pid = getpid();
-	printf("%d\n", pid);
-	while (argc == 1)
-	{
-		pause ();
 	}
 	return (0);
 }
