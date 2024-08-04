@@ -2,11 +2,11 @@
 
 NAME		= libftprintf.a
 
-CC			= gcc
+CC			= cc
 
 FLAGS		= -Wall -Wextra -Werror 
 
-SRCS		= ft_printf.c ft_printf_util.c 
+SRCS		= ft_printf.c ft_printf_util.c libft.c 
 
 OBJS        = $(SRCS:.c=.o)
 
@@ -24,7 +24,7 @@ $(NAME):	$(OBJS)
 			ar rc $(NAME) $(OBJS)
 
 $(OBJ_FILE):	$(SRC_FILE)
-	gcc -Wall -Wextra -Werror -c $(SRC_FILE)
+	cc -Wall -Wextra -Werror -c $(SRC_FILE)
 
 clean:
 			$(RM) $(OBJS)
