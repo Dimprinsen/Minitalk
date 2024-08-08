@@ -6,7 +6,7 @@
 /*   By: ttinnerh <ttinnerh@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 17:06:36 by ttinnerh          #+#    #+#             */
-/*   Updated: 2024/08/04 22:43:51 by ttinnerh         ###   ########.fr       */
+/*   Updated: 2024/08/08 20:02:03 by ttinnerh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 #include <unistd.h>
 #include <signal.h>
 #include "ft_printf/ft_printf.h"
+
+volatile sig_atomic_t	g_ack_received = 0;
+
+void	ack_handler(int signum)
+{
+	(void)signum;
+	g_ack_received = 1;
+}
 
 void	send_message(int pid, char *str)
 {
@@ -34,6 +42,9 @@ void	send_message(int pid, char *str)
 			bit++;
 			usleep(300);
 		}
+		while (!g_ack_received)
+			pause();
+		g_ack_received = 0;
 		i++;
 	}
 }
@@ -49,7 +60,13 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	pid = ft_atoi(argv[1]);
+	if (pid < 1000)
+	{
+		ft_printf("Invalid server PID: %s\n", argv[1]);
+		return (1);
+	}
 	message = argv[2];
+	signal(SIGUSR1, ack_handler);
 	send_message(pid, message);
 	return (0);
 }
