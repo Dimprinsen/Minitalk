@@ -18,6 +18,18 @@
 
 volatile sig_atomic_t	g_ack_received = 0;
 
+void	sig_fail(int pid)
+{
+	ft_printf("Failed to send signal to PID %d\n", pid);
+	exit(EXIT_FAILURE);
+}
+
+void	mess_comp(int signum)
+{
+	(void)signum;
+	ft_printf("Signal received!\n");
+}
+
 void	ack_handler(int signum)
 {
 	(void)signum;
@@ -36,9 +48,12 @@ void	send_message(int pid, char *str)
 		while (bit < 8)
 		{
 			if ((str[i] >> bit) & 1)
-				kill(pid, SIGUSR1);
-			else
-				kill(pid, SIGUSR2);
+			{
+				if (kill(pid, SIGUSR1) == -1)
+					sig_fail(pid);
+			}
+			else if (kill(pid, SIGUSR2) == -1)
+				sig_fail(pid);
 			bit++;
 			usleep(300);
 		}
@@ -67,6 +82,7 @@ int	main(int argc, char *argv[])
 	}
 	message = argv[2];
 	signal(SIGUSR1, ack_handler);
+	signal(SIGUSR2, mess_comp);
 	send_message(pid, message);
 	return (0);
 }

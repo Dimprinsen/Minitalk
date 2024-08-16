@@ -37,6 +37,7 @@ void	bit_handler(int signum, siginfo_t *info, void *context)
 		if (current == '\0')
 		{
 			ft_printf("\n");
+			kill(client_pid, SIGUSR2);
 		}
 		else if (current != '\0')
 		{
