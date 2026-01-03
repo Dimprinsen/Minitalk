@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttinnerh <ttinnerh@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: thtinner <thtinner@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/03 16:35:09 by ttinnerh          #+#    #+#             */
-/*   Updated: 2024/08/04 21:22:05 by ttinnerh         ###   ########.fr       */
+/*   Created: 2025/05/03 16:35:09 by thtinner          #+#    #+#             */
+/*   Updated: 2025/08/04 21:22:05 by thtinner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

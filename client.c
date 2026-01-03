@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttinnerh <ttinnerh@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: thtinner <thtinner@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/04 17:06:36 by ttinnerh          #+#    #+#             */
-/*   Updated: 2024/08/08 20:02:03 by ttinnerh         ###   ########.fr       */
+/*   Created: 2025/08/04 17:06:36 by thtinner          #+#    #+#             */
+/*   Updated: 2025/08/08 20:02:03 by thtinner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

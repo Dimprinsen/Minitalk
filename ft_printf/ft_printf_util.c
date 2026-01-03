@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_util.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ttinnerh <ttinnerh@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: thtinner <thtinner@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/03 20:01:31 by ttinnerh          #+#    #+#             */
-/*   Updated: 2023/10/09 20:02:05 by ttinnerh         ###   ########.fr       */
+/*   Created: 2025/10/03 20:01:31 by thtinner          #+#    #+#             */
+/*   Updated: 2025/10/09 20:02:05 by thtinner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

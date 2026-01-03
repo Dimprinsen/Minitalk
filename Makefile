@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ttinnerh <ttinnerh@student.42berlin.de>    +#+  +:+       +#+         #
+#    By: thtinner <thtinner@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/08/04 22:23:58 by ttinnerh          #+#    #+#              #
-#    Updated: 2024/08/04 22:29:55 by ttinnerh         ###   ########.fr        #
+#    Created: 2025/08/04 22:23:58 by thtinner          #+#    #+#              #
+#    Updated: 2025/08/04 22:29:55 by thtinner         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,28 +27,26 @@ OBJ_C = $(SRC_C:%.c=%.o)
 OBJ_S_BONUS = $(SRC_S_BONUS:%.c=%.o)
 OBJ_C_BONUS = $(SRC_C_BONUS:%.c=%.o)
 
+FTPRINTF = ft_printf/libftprintf.a
+
 all : server client
 
-server: $(OBJ_S) ft_printf
+$(FTPRINTF):
 	@make -C ft_printf
+
+server: $(OBJ_S) $(FTPRINTF)
 	$(CC) $(CFLAGS) $(OBJ_S) -Lft_printf -lftprintf -o server
 
-client: $(OBJ_C) ft_printf
-	@make -C ft_printf
+client: $(OBJ_C) $(FTPRINTF)
 	$(CC) $(CFLAGS) $(OBJ_C) -Lft_printf -lftprintf -o client
 
 bonus: server_bonus client_bonus
 
-server_bonus: $(OBJ_S_BONUS) ft_printf
-	@make -C ft_printf
+server_bonus: $(OBJ_S_BONUS) $(FTPRINTF)
 	$(CC) $(CFLAGS) $(OBJ_S_BONUS) -Lft_printf -lftprintf -o server_bonus
 
-client_bonus: $(OBJ_C_BONUS) ft_printf
-	@make -C ft_printf
+client_bonus: $(OBJ_C_BONUS) $(FTPRINTF)
 	$(CC) $(CFLAGS) $(OBJ_C_BONUS) -Lft_printf -lftprintf -o client_bonus
-
-ft_printf:
-	@make -s -C ft_printf
 
 clean:
 	@make clean -C ft_printf
