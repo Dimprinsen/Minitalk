@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thtinner <thtinner@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: thtinner <thtinner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 17:06:53 by thtinner          #+#    #+#             */
-/*   Updated: 2025/08/08 20:01:03 by thtinner         ###   ########.fr       */
+/*   Updated: 2026/01/04 16:13:15 by thtinner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>

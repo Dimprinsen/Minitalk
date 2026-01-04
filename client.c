@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thtinner <thtinner@student.42berlin.de>    +#+  +:+       +#+        */
+/*   By: thtinner <thtinner@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 17:06:36 by thtinner          #+#    #+#             */
-/*   Updated: 2025/08/08 20:02:03 by thtinner         ###   ########.fr       */
+/*   Updated: 2026/01/04 17:03:37 by thtinner         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
@@ -55,7 +54,7 @@ void	send_message(int pid, char *str)
 			else if (kill(pid, SIGUSR2) == -1)
 				sig_fail(pid);
 			bit++;
-			usleep(300);
+			usleep(500);
 		}
 		while (!g_ack_received)
 			pause();

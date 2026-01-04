@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thtinner <thtinner@student.42berlin.de>    +#+  +:+       +#+         #
+#    By: thtinner <thtinner@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/04 22:23:58 by thtinner          #+#    #+#              #
-#    Updated: 2025/08/04 22:29:55 by thtinner         ###   ########.fr        #
+#    Updated: 2026/01/04 16:12:43 by thtinner         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,14 +18,8 @@ SRC_S = server.c
 
 SRC_C = client.c
 
-SRC_S_BONUS = server_bonus.c
-
-SRC_C_BONUS = client_bonus.c
-
 OBJ_S = $(SRC_S:%.c=%.o)
 OBJ_C = $(SRC_C:%.c=%.o)
-OBJ_S_BONUS = $(SRC_S_BONUS:%.c=%.o)
-OBJ_C_BONUS = $(SRC_C_BONUS:%.c=%.o)
 
 FTPRINTF = ft_printf/libftprintf.a
 
@@ -40,24 +34,16 @@ server: $(OBJ_S) $(FTPRINTF)
 client: $(OBJ_C) $(FTPRINTF)
 	$(CC) $(CFLAGS) $(OBJ_C) -Lft_printf -lftprintf -o client
 
-bonus: server_bonus client_bonus
-
-server_bonus: $(OBJ_S_BONUS) $(FTPRINTF)
-	$(CC) $(CFLAGS) $(OBJ_S_BONUS) -Lft_printf -lftprintf -o server_bonus
-
-client_bonus: $(OBJ_C_BONUS) $(FTPRINTF)
-	$(CC) $(CFLAGS) $(OBJ_C_BONUS) -Lft_printf -lftprintf -o client_bonus
-
 clean:
 	@make clean -C ft_printf
-	@rm -rf $(OBJ_S) $(OBJ_C) $(OBJ_S_BONUS) $(OBJ_C_BONUS)
+	@rm -rf $(OBJ_S) $(OBJ_C)
 	@echo "...objs removed."
 
 fclean:	clean
 	@make fclean -C ft_printf
-	@rm -rf server client server_bonus client_bonus
+	@rm -rf server client
 	@echo "...binaries removed."
 
 re:	fclean all
 
-.PHONY:	all clean fclean re bonus
+.PHONY:	all clean fclean re
